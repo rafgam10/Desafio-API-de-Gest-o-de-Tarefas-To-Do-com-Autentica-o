@@ -10,7 +10,7 @@ class User(db.Model):
     email = db.Column(db.String(255), nullable=False, unique=True)
     password_hash = db.Column(db.String(255), nullable=False)
     created_at = db.Column(db.DateTime, onupdate=datetime.datetime.now)
-    updated_at = db.Column(db.DateTine, server_default=db.func.now())
+    updated_at = db.Column(db.DateTime, server_default=db.func.now())
     
     tarefas = db.relationship("Tarefa", back_populates="usuario")
     
