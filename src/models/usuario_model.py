@@ -13,7 +13,11 @@ class User(db.Model):
     created_at = db.Column(db.DateTime(timezone=True), server_default=func.now())
     updated_at = db.Column(db.DateTime(timezone=True), onupdate=func.now)
     
-    tarefas = db.relationship("Tarefa", back_populates="usuario")
+    tarefas = db.relationship(
+        "Tarefa",
+        back_populates="user",
+        cascade="all, delete-orphan"
+    )
     
     def __init__(self, name, email, password_hash):
         self.name = name

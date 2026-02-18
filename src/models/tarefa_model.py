@@ -13,7 +13,11 @@ class Tarefa(db.Model):
     __tablename__ = "tarefas"
 
     id = db.Column(db.Integer, primary_key=True)
-    user_id = db.Column(db.Integer, db.ForeignKey("usuario.id"), nullable=False)
+    user_id = db.Column(
+        db.Integer,
+        db.ForeignKey("usuario.id"),
+        nullable=False
+    )
 
     title = db.Column(db.String(120), nullable=False)
     description = db.Column(db.String(1000), nullable=True)
@@ -33,7 +37,10 @@ class Tarefa(db.Model):
         onupdate=datetime.datetime.now
     )
 
-    user = db.relationship("User", back_populates="tarefas")
+    user = db.relationship(
+        "User",
+        back_populates="tarefas"
+    )
 
     def __repr__(self):
         return f"<Tarefa {self.title} - {self.status}>"
