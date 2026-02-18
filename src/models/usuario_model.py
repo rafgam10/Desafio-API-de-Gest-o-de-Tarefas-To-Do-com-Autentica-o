@@ -21,8 +21,8 @@ class User(db.Model):
     
     def __init__(self, name, email, password_hash):
         self.name = name
-        self.email = email,
-        self.password_hash = password_hash,
+        self.email = email
+        self.password_hash = password_hash
     
     def __repr__(self):
         return f"User: {self.name} - {self.email} - {self.password_hash} - {self.created_at} - {self.updated_at}"
