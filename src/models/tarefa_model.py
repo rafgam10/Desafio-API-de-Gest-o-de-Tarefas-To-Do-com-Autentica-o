@@ -42,5 +42,11 @@ class Tarefa(db.Model):
         back_populates="tarefas"
     )
 
+    def __init__(self, id_user, title, description):
+        self.user_id=id_user
+        self.title=title
+        self.description=description
+        
+
     def __repr__(self):
         return f"<Tarefa {self.title} - {self.status}>"
