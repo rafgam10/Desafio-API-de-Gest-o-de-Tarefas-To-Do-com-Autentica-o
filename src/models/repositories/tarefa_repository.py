@@ -59,6 +59,8 @@ class Repository_Tarefa(Interface_Tarefa):
             select_tarefa.description = description
             select_tarefa.status = status
             select_tarefa.updated_at = datetime.datetime.now()
+            db.session.commit()
+            print(title, description, status)
         
         except Exception as e:
             return str(e)
