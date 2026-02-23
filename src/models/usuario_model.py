@@ -27,13 +27,3 @@ class User(db.Model):
     def __repr__(self):
         return f"User: {self.name} - {self.email} - {self.password_hash} - {self.created_at} - {self.updated_at}"
     
-    def to_dict(self):
-        return   {
-            "id": self.id,
-            "user_id": self.user_id,
-            "title": self.title,
-            "description": self.description,
-            "status": self.status,
-            "created_at": self.created_at.isoformat() if self.created_at else None,
-            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
-        }

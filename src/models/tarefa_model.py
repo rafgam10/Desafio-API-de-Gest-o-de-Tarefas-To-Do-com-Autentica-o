@@ -50,3 +50,14 @@ class Tarefa(db.Model):
 
     def __repr__(self):
         return f"<Tarefa {self.title} - {self.status}>"
+    
+    def to_dict(self):
+        return   {
+            "id": self.id,
+            "user_id": self.user_id,
+            "title": self.title,
+            "description": self.description,
+            "status": self.status,
+            "created_at": self.created_at.isoformat() if self.created_at else None,
+            "updated_at": self.updated_at.isoformat() if self.updated_at else None,
+        }
