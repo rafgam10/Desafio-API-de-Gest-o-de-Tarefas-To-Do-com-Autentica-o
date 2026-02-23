@@ -19,7 +19,10 @@ def create_app():
         register_routes(app)
         
         from src.routes.auth_routes import auth_bp
+        from src.routes.tarefas_routes import tarefas_bp
+        
         app.register_blueprint(auth_bp)
+        app.register_blueprint(tarefas_bp)
         
     except Exception:
         pass
